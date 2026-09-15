@@ -64,10 +64,16 @@ jobs:
 
       - name: Run e2e tests
         env:
+          # The whole suite runs against mocked Freighter/Soroban RPC/Supabase
+          # (see e2e/mocks/) rather than real testnet or a live backend, so
+          # these never need to resolve to anything real — they just need to
+          # be present, since lib/env.ts throws if any is missing at runtime.
           NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
           NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+          NEXT_PUBLIC_API_URL: https://placeholder.supabase.co/functions/v1
           NEXT_PUBLIC_CONTRACT_ID: CCPOUXHJT3D7EKM44ASLS442QSNRF6IKCMIAI466FSCYMA6BWKDHHFR2
           NEXT_PUBLIC_RPC_URL: https://soroban-testnet.stellar.org
+          NEXT_PUBLIC_NETWORK_PASSPHRASE: "Test SDF Network ; September 2015"
         run: npm run test:e2e
 
       - name: Upload Playwright report

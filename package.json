@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "echo \"e2e not yet implemented\" && exit 1"
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@stellar/freighter-api": "^6.0.1",
@@ -27,6 +27,7 @@
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
+    "@playwright/test": "^1.63.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
